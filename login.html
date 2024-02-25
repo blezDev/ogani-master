@@ -218,7 +218,7 @@
             transform: translateX(200%);
         }
     </style>
-    <title>Nutrition Website Login Page</title>
+    <title>Nutritionist | Login</title>
 
 </head>
 
@@ -341,13 +341,13 @@
     loginBtn.addEventListener('click', (e) => {
         e.preventDefault();
         if (loginEmail.value !== null && loginEmail.value !== "" && loginPassword.value !== null && loginPassword.value !== "") {
-          const email  = localStorage.getItem("user_email");
-          const password  = localStorage.getItem("user_password");
-          if (email === loginEmail.value && password === loginPassword.value){
-              window.location.href = "index.html";
-          }else{
-              alert("Login invalid");
-          }
+            const email  = localStorage.getItem("user_email");
+            const password  = localStorage.getItem("user_password");
+            if (email === loginEmail.value && password === loginPassword.value){
+                window.location.href = "index.html";
+            }else{
+                alert("Login invalid");
+            }
 
 
         }
