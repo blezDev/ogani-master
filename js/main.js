@@ -336,15 +336,24 @@ async function fetchData() {
 
 
 
-
-
-
-
         itemDescription.innerText = `Food Nutrients`
 
         const dataType =  document.getElementById("data-type");
         dataType.innerText = `Data Type : ${foodDetails["dataType"]}`;
 
+
+        const foodImage = document.getElementById("food-image");
+        const imageURL = `https://api.pexels.com/v1/search?query=${foodDetails["description"]}&per_page=1`
+        const imageResponse = await axios.get(imageURL,{headers : {
+                Authorization : "RJctUfnsOAa2wZmqMY8J3mMbMQNvLd9DJJYNxaJp62WeRN0XlyeegnXV"
+            }});
+        const imageData = imageResponse["data"];
+        let image = imageData.photos[0].src.original;
+        if (image === undefined){
+            image = "https://demofree.sirv.com/nope-not-here.jpg"
+        }
+
+        foodImage.src = image
 
     } catch (error) {
         console.error('Error fetching data:', error);
